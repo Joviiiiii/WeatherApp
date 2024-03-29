@@ -38,5 +38,21 @@ public class TestFetchWeather {
             e.printStackTrace();
         }
     }
+    @Test
+    public void testFetchWeatherByCityState(){
+        try{
+            String city = "London";
+            String state = "KY";
+
+            JSONObject weatherData = WeatherFetch.fetchWeatherByCityState(city, state);
+            assertNotNull(weatherData);
+            assertEquals(weatherData.getDouble("lat"),37.1289771 , 0.1);
+            assertEquals(weatherData.getDouble("lon"),-84.0832646, 0.1);
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+    }
+
 
 }
